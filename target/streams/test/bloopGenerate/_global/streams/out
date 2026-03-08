@@ -1,0 +1,4 @@
+[debug] [task_management_service-test] Classpath dependencies List()
+[debug] [task_management_service-test] Dependencies from configurations List(task_management_service)
+[debug] Bloop wrote the configuration of project 'task_management_service-test' to '/home/flamo/VSCode_projects/task_management_service/.bloop/task_management_service-test.json'
+[success] Generated .bloop/task_management_service-test.json

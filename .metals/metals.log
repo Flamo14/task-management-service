@@ -1,0 +1,157 @@
+2026.03.08 11:22:45 INFO  Started: Metals version 1.6.6 in folders '/home/flamo/VSCode_projects/task_management_service' for client Visual Studio Code 1.109.5.
+2026.03.08 11:22:45 INFO  Memory monitor started
+2026.03.08 11:22:46 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.03.08 11:22:48 INFO  running '/usr/bin/sbt -Dbloop.export-jar-classifiers=sources bloopInstall'
+2026.03.08 11:22:49 WARN  no build target for: /home/flamo/VSCode_projects/task_management_service/project/metals.sbt
+2026.03.08 11:22:49 INFO  no build target found for /home/flamo/VSCode_projects/task_management_service/project/metals.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.03.08 11:22:50 INFO  [info] welcome to sbt 1.12.5 (Ubuntu Java 21.0.10)
+2026.03.08 11:22:53 INFO  [info] loading settings for project task_management_service-build-build from metals.sbt...
+2026.03.08 11:22:53 INFO  [info] loading project definition from /home/flamo/VSCode_projects/task_management_service/project/project
+2026.03.08 11:22:56 INFO  [info] loading settings for project task_management_service-build from metals.sbt...
+2026.03.08 11:22:56 INFO  [info] loading project definition from /home/flamo/VSCode_projects/task_management_service/project
+2026.03.08 11:22:57 INFO  [success] Generated .bloop/task_management_service-build.json
+2026.03.08 11:22:57 INFO  [success] Total time: 2 s, completed 8 мар. 2026 г., 11:22:58
+2026.03.08 11:23:00 INFO  [info] loading settings for project task_management_service from build.sbt...
+2026.03.08 11:23:00 INFO  [info] set current project to hello-world (in build file:/home/flamo/VSCode_projects/task_management_service/)
+2026.03.08 11:23:00 INFO  [success] Generated .bloop/task_management_service-test.json
+2026.03.08 11:23:00 INFO  [success] Generated .bloop/task_management_service.json
+2026.03.08 11:23:00 INFO  [success] Total time: 0 s, completed 8 мар. 2026 г., 11:23:00
+2026.03.08 11:23:00 INFO  time: ran 'sbt bloopInstall' in 11s
+2026.03.08 11:23:00 INFO  Attempting to connect to the build server...
+2026.03.08 11:23:00 INFO  Found a Bloop server running
+2026.03.08 11:23:01 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /home/flamo/VSCode_projects/task_management_service/.metals/bsp.trace.json or /home/flamo/.cache/metals/bsp.trace.json
+2026.03.08 11:23:01 INFO  Attempting to connect to the build server...
+2026.03.08 11:23:01 INFO  Found a Bloop server running
+2026.03.08 11:23:01 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /home/flamo/VSCode_projects/task_management_service/project/.metals/bsp.trace.json or /home/flamo/.cache/metals/bsp.trace.json
+2026.03.08 11:23:02 INFO  time: Connected to build server in 1.49s
+2026.03.08 11:23:02 INFO  Connected to Build server: Bloop v2.0.19
+2026.03.08 11:23:02 WARN  2.13.12 is no longer supported in the current Metals versions, using the last known supported version 1.4.2
+2026.03.08 11:23:04 WARN  Could not find java sources in /usr/lib/jvm/src.zip, /usr/lib/jvm/lib/src.zip, /usr/lib/jvm/java-21-openjdk-amd64/src.zip, /usr/lib/jvm/java-21-openjdk-amd64/lib/src.zip. Java symbols will not be available.
+2026.03.08 11:23:09 INFO  time: indexed workspace in 6.59s
+2026.03.08 11:27:15 INFO  compiling task_management_service (1 scala source)
+2026.03.08 11:27:17 INFO  time: compiled task_management_service in 2.78s
+2026.03.08 11:27:24 INFO  compiling task_management_service (1 scala source)
+2026.03.08 11:27:24 INFO  time: compiled task_management_service in 0.58s
+2026.03.08 11:27:24 INFO  compiling task_management_service (1 scala source)
+2026.03.08 11:27:24 INFO  time: compiled task_management_service in 0.18s
+2026.03.08 11:27:28 INFO  compiling task_management_service (3 scala sources)
+2026.03.08 11:27:28 INFO  time: compiled task_management_service in 0.38s
+2026.03.08 11:27:28 INFO  compiling task_management_service (3 scala sources)
+2026.03.08 11:27:29 INFO  time: compiled task_management_service in 0.46s
+2026.03.08 11:27:29 INFO  compiling task_management_service (4 scala sources)
+2026.03.08 11:27:30 INFO  time: compiled task_management_service in 0.36s
+2026.03.08 11:27:30 INFO  compiling task_management_service (4 scala sources)
+2026.03.08 11:27:30 INFO  time: compiled task_management_service in 0.19s
+2026.03.08 11:27:32 INFO  compiling task_management_service (5 scala sources)
+2026.03.08 11:27:32 INFO  time: compiled task_management_service in 0.33s
+2026.03.08 11:27:32 INFO  compiling task_management_service (5 scala sources)
+2026.03.08 11:27:33 INFO  time: compiled task_management_service in 0.3s
+2026.03.08 11:27:41 INFO  compiling task_management_service (5 scala sources)
+2026.03.08 11:27:41 INFO  time: compiled task_management_service in 0.37s
+мар. 08, 2026 11:27:54 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+мар. 08, 2026 11:27:54 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+мар. 08, 2026 11:27:55 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2026.03.08 11:40:25 INFO  file:///home/flamo/VSCode_projects/task_management_service/src/main/scala/model/Task.scala:3:8: stale bloop error: not found: object spray
+import spray.json.DefaultJsonProtocol._
+       ^^^^^
+2026.03.08 11:40:25 INFO  file:///home/flamo/VSCode_projects/task_management_service/src/main/scala/model/Task.scala:8:29: stale bloop error: not found: value jsonFormat4
+  implicit val taskFormat = jsonFormat4(Task.apply)
+                            ^^^^^^^^^^^
+2026.03.08 11:40:25 INFO  file:///home/flamo/VSCode_projects/task_management_service/src/main/scala/model/Task.scala:8:41: stale bloop error: missing argument list for method apply in object Task
+Unapplied methods are only converted to functions when a function type is expected.
+You can make this conversion explicit by writing `apply _` or `apply(_,_,_,_)` instead of `apply`.
+  implicit val taskFormat = jsonFormat4(Task.apply)
+                                        ^^^^^^^^^^
+2026.03.08 11:40:25 INFO  file:///home/flamo/VSCode_projects/task_management_service/src/main/scala/model/Task.scala:8:16: stale bloop warning: Implicit definition should have explicit type [quickfixable]
+  implicit val taskFormat = jsonFormat4(Task.apply)
+               ^
+2026.03.08 11:40:31 INFO  file:///home/flamo/VSCode_projects/task_management_service/src/main/scala/routes/TaskRoutes.scala:3:8: stale bloop error: not found: object akka
+import akka.http.scaladsl.server.Directives._
+       ^^^^
+2026.03.08 11:40:31 INFO  file:///home/flamo/VSCode_projects/task_management_service/src/main/scala/routes/TaskRoutes.scala:4:8: stale bloop error: not found: object akka
+import akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport._
+       ^^^^
+2026.03.08 11:40:31 INFO  file:///home/flamo/VSCode_projects/task_management_service/src/main/scala/routes/TaskRoutes.scala:5:8: stale bloop error: not found: object spray
+import spray.json.DefaultJsonProtocol._
+       ^^^^^
+2026.03.08 11:40:31 INFO  file:///home/flamo/VSCode_projects/task_management_service/src/main/scala/routes/TaskRoutes.scala:12:5: stale bloop error: not found: value pathPrefix
+    pathPrefix("tasks") {
+    ^^^^^^^^^^
+2026.03.08 11:40:31 INFO  file:///home/flamo/VSCode_projects/task_management_service/src/main/scala/routes/TaskRoutes.scala:13:7: stale bloop error: not found: value pathEnd
+      pathEnd {
+      ^^^^^^^
+2026.03.08 11:40:31 INFO  file:///home/flamo/VSCode_projects/task_management_service/src/main/scala/routes/TaskRoutes.scala:14:9: stale bloop error: not found: value get
+        get {
+        ^^^
+2026.03.08 11:40:31 INFO  file:///home/flamo/VSCode_projects/task_management_service/src/main/scala/routes/TaskRoutes.scala:15:11: stale bloop error: not found: value complete
+          complete(taskService.getAllTasks)
+          ^^^^^^^^
+2026.03.08 11:40:31 INFO  file:///home/flamo/VSCode_projects/task_management_service/src/main/scala/routes/TaskRoutes.scala:17:9: stale bloop error: not found: value post
+        post {
+        ^^^^
+2026.03.08 11:40:31 INFO  file:///home/flamo/VSCode_projects/task_management_service/src/main/scala/routes/TaskRoutes.scala:18:11: stale bloop error: not found: value entity
+          entity(as[Task]) { task =>
+          ^^^^^^
+2026.03.08 11:40:31 INFO  file:///home/flamo/VSCode_projects/task_management_service/src/main/scala/routes/TaskRoutes.scala:18:18: stale bloop error: not found: value as
+          entity(as[Task]) { task =>
+                 ^^
+2026.03.08 11:40:31 INFO  file:///home/flamo/VSCode_projects/task_management_service/src/main/scala/routes/TaskRoutes.scala:19:13: stale bloop error: not found: value complete
+            complete(taskService.createTask(task))
+            ^^^^^^^^
+2026.03.08 11:40:31 INFO  file:///home/flamo/VSCode_projects/task_management_service/src/main/scala/routes/TaskRoutes.scala:23:7: stale bloop error: not found: value path
+      path(LongNumber) { id =>
+      ^^^^
+2026.03.08 11:40:31 INFO  file:///home/flamo/VSCode_projects/task_management_service/src/main/scala/routes/TaskRoutes.scala:23:12: stale bloop error: not found: value LongNumber
+      path(LongNumber) { id =>
+           ^^^^^^^^^^
+2026.03.08 11:40:31 INFO  file:///home/flamo/VSCode_projects/task_management_service/src/main/scala/routes/TaskRoutes.scala:24:9: stale bloop error: not found: value get
+        get {
+        ^^^
+2026.03.08 11:40:31 INFO  file:///home/flamo/VSCode_projects/task_management_service/src/main/scala/routes/TaskRoutes.scala:26:32: stale bloop error: not found: value complete
+            case Some(task) => complete(task)
+                               ^^^^^^^^
+2026.03.08 11:40:31 INFO  file:///home/flamo/VSCode_projects/task_management_service/src/main/scala/routes/TaskRoutes.scala:27:26: stale bloop error: not found: value complete
+            case None => complete(404, "Task not found")
+                         ^^^^^^^^
+2026.03.08 11:40:31 INFO  file:///home/flamo/VSCode_projects/task_management_service/src/main/scala/routes/TaskRoutes.scala:30:9: stale bloop error: not found: value put
+        put {
+        ^^^
+2026.03.08 11:40:31 INFO  file:///home/flamo/VSCode_projects/task_management_service/src/main/scala/routes/TaskRoutes.scala:31:11: stale bloop error: not found: value entity
+          entity(as[Task]) { task =>
+          ^^^^^^
+2026.03.08 11:40:31 INFO  file:///home/flamo/VSCode_projects/task_management_service/src/main/scala/routes/TaskRoutes.scala:31:18: stale bloop error: not found: value as
+          entity(as[Task]) { task =>
+                 ^^
+2026.03.08 11:40:31 INFO  file:///home/flamo/VSCode_projects/task_management_service/src/main/scala/routes/TaskRoutes.scala:33:41: stale bloop error: not found: value complete
+              case Some(updatedTask) => complete(updatedTask)
+                                        ^^^^^^^^
+2026.03.08 11:40:31 INFO  file:///home/flamo/VSCode_projects/task_management_service/src/main/scala/routes/TaskRoutes.scala:34:28: stale bloop error: not found: value complete
+              case None => complete(404, "Task not found")
+                           ^^^^^^^^
+2026.03.08 11:40:31 INFO  file:///home/flamo/VSCode_projects/task_management_service/src/main/scala/routes/TaskRoutes.scala:38:9: stale bloop error: not found: value delete
+        delete {
+        ^^^^^^
+2026.03.08 11:40:31 INFO  file:///home/flamo/VSCode_projects/task_management_service/src/main/scala/routes/TaskRoutes.scala:40:13: stale bloop error: not found: value complete
+            complete(204, "")
+            ^^^^^^^^
+2026.03.08 11:40:31 INFO  file:///home/flamo/VSCode_projects/task_management_service/src/main/scala/routes/TaskRoutes.scala:42:13: stale bloop error: not found: value complete
+            complete(404, "Task not found")
+            ^^^^^^^^
+2026.03.08 11:40:34 INFO  file:///home/flamo/VSCode_projects/task_management_service/src/main/scala/Main.scala:1:8: stale bloop error: not found: object akka
+import akka.actor.ActorSystem
+       ^^^^
+2026.03.08 11:40:34 INFO  file:///home/flamo/VSCode_projects/task_management_service/src/main/scala/Main.scala:2:8: stale bloop error: not found: object akka
+import akka.http.scaladsl.Http
+       ^^^^
+2026.03.08 11:40:34 INFO  file:///home/flamo/VSCode_projects/task_management_service/src/main/scala/Main.scala:9:24: stale bloop error: not found: type ActorSystem
+  implicit val system: ActorSystem = ActorSystem("task-management-service")
+                       ^^^^^^^^^^^
+2026.03.08 11:40:34 INFO  file:///home/flamo/VSCode_projects/task_management_service/src/main/scala/Main.scala:9:38: stale bloop error: not found: value ActorSystem
+  implicit val system: ActorSystem = ActorSystem("task-management-service")
+                                     ^^^^^^^^^^^
+2026.03.08 11:40:34 INFO  file:///home/flamo/VSCode_projects/task_management_service/src/main/scala/Main.scala:16:23: stale bloop error: not found: value Http
+  val bindingFuture = Http().newServerAt("localhost", 8080).bind(taskRoutes.routes)
+                      ^^^^
