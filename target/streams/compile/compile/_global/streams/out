@@ -1,4 +1,0 @@
-[0m[[0m[33mwarn[0m] [0m[0m/home/flamo/VSCode_projects/task_management_service/src/main/scala/model/Task.scala:8:16: Implicit definition should have explicit type (inferred spray.json.RootJsonFormat[model.Task]) [quickfixable][0m
-[0m[[0m[33mwarn[0m] [0m[0m  implicit val taskFormat = jsonFormat4(Task.apply)[0m
-[0m[[0m[33mwarn[0m] [0m[0m               ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m
