@@ -1,19 +1,14 @@
-import akka.actor.ActorSystem
-import akka.http.scaladsl.Http
-import scala.concurrent.ExecutionContextExecutor
-import repository.TaskRepository
-import service.TaskService
-import routes.TaskRoutes
-
+import model.Task
+import java.time.LocalDate
 object Main extends App {
-  implicit val system: ActorSystem = ActorSystem("task-management-service")
-  implicit val executionContext: ExecutionContextExecutor = system.dispatcher
 
-  val taskRepository = new TaskRepository()
-  val taskService = new TaskService(taskRepository)
-  val taskRoutes = new TaskRoutes(taskService)
-
-  val bindingFuture = Http().newServerAt("localhost", 8080).bind(taskRoutes.routes)
-
-  println(s"Server online at http://localhost:8080/")
+val task = Task(
+    id = 1,
+    title = "Learn Scala",
+    description = "Study the basics of Scala programming language.",
+    status = "Pending",
+    priority = "Medium",
+    startDate = LocalDate.parse("2023-10-01"),
+    endDate = LocalDate.parse("2023-10-31")
+)
 }

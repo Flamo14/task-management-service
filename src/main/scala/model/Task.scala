@@ -1,9 +1,12 @@
 package model
+import java.time.LocalDate
 
-import spray.json.DefaultJsonProtocol._
-
-case class Task(id: Long, title: String, description: Option[String], status: String)
-
-object Task {
-  implicit val taskFormat = jsonFormat4(Task.apply)
-}
+case class Task(
+    id: Long,
+    title: String,
+    description: String,
+    status: String = "Pending",
+    priority: String = "Medium",
+    startDate: java.time.LocalDate,
+    endDate: java.time.LocalDate
+)
