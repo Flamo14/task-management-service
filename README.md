@@ -2,84 +2,63 @@
 
 ## Project Description
 
-A REST API for managing tasks, built with Scala and Akka HTTP. This service allows users to create, read, update, and delete tasks through HTTP endpoints.
+This project is a Python backend service for managing tasks with a clean layered architecture. It provides a foundation for task lifecycle operations while keeping the implementation minimal and framework-free for future expansion.
 
 ## Features
 
-- Create new tasks with title, description, and status
-- Retrieve all tasks
-- Get a specific task by ID
-- Update existing tasks
-- Delete tasks
-- In-memory storage (no persistence)
+- Task entity defined with Python dataclasses
+- In-memory task storage layer
+- Layered architecture with clear separation of responsibilities
+- Placeholders for API, service, repository, and domain layers
 
-## Tech Stack
+## Architecture
 
-- **Language**: Scala 2.13.12
-- **HTTP Framework**: Akka HTTP 10.5.0
-- **JSON Marshalling**: Spray JSON
-- **Build Tool**: SBT
+The project follows a layered design:
 
-## API Endpoints
+- `api`: API layer and routing placeholders
+- `services`: business logic and orchestration
+- `repositories`: data access and persistence abstraction
+- `domain`: core task entity and models
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/tasks` | Retrieve all tasks |
-| POST | `/tasks` | Create a new task |
-| GET | `/tasks/{id}` | Get a specific task by ID |
-| PUT | `/tasks/{id}` | Update an existing task |
-| DELETE | `/tasks/{id}` | Delete a task |
-
-### Request/Response Examples
-
-#### Create Task (POST /tasks)
-```json
-{
-  "title": "Complete project",
-  "description": "Finish the Scala REST API project",
-  "status": "in-progress"
-}
-```
-
-#### Response
-```json
-{
-  "id": 1,
-  "title": "Complete project",
-  "description": "Finish the Scala REST API project",
-  "status": "in-progress"
-}
-```
-
-## How to Run
-
-1. **Prerequisites**: Ensure you have Java 8+ and SBT installed on your system.
-
-2. **Clone or navigate to the project directory**.
-
-3. **Install dependencies**:
-   ```
-   sbt update
-   ```
-
-4. **Run the application**:
-   ```
-   sbt run
-   ```
-
-5. The server will start on `http://localhost:8080`. You can test the endpoints using tools like curl, Postman, or any HTTP client.
+This structure keeps the service modular and ready for future upgrades like FastAPI and database persistence.
 
 ## Project Structure
 
 ```
-src/main/scala/
-├── Main.scala              # Application entry point
-├── model/
-│   └── Task.scala          # Task domain model
-├── repository/
-│   └── TaskRepository.scala # Data access layer
-├── service/
-│   └── TaskService.scala   # Business logic layer
-└── routes/
-    └── TaskRoutes.scala    # HTTP route definitions
-```
+src/
+├── api/
+│   └── task_routes.py
+├── domain/
+│   └── task.py
+├── repositories/
+│   └── task_repository.py
+├── services/
+│   └── task_service.py
+└── __init__.py
+
+tests/
+└── __init__.py
+``` 
+
+## How to Run
+
+1. Ensure Python 3.10+ is installed.
+2. Create and activate a virtual environment:
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate
+   ```
+3. Install dependencies if any are added later. Currently, this project uses only the Python standard library.
+4. Use the Python interpreter to inspect or import modules:
+   ```bash
+   python -c "from src.domain.task import Task; print(Task(id='1', title='Example'))"
+   ```
+
+> Note: The current version is a skeleton project with placeholder layers. A runnable API server will be added in a future iteration.
+
+## Future Plans
+
+- Add a FastAPI-based HTTP API layer
+- Implement a persistent database storage option
+- Add unit tests and integration tests
+- Complete service and repository logic for CRUD operations
