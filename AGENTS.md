@@ -14,11 +14,14 @@
 - Follow strict separation of concerns:
   - `api`: placeholder for HTTP and request/response routing
   - `services`: contains business logic and orchestration
-  - `repositories`: handles data access and storage abstraction
-  - `domain`: defines core task models and entities
+- `repositories`: handles data access and storage abstraction
+    - Repositories should define clear interfaces for data access.
+    - Implementation details (e.g., in-memory, database) should be interchangeable.  - `domain`: defines core task models and entities
 - Do not mix responsibilities between layers.
 - Use Python dataclasses for domain models.
 - Keep modules focused and minimal.
+- Domain models should be simple and mostly immutable.
+- Business validation should not be placed inside domain models; it belongs to the service layer.
 
 ## Coding Guidelines
 - Write clean, readable, and idiomatic Python code.

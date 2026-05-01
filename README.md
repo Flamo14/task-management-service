@@ -51,8 +51,7 @@ tests/
 3. Install dependencies if any are added later. Currently, this project uses only the Python standard library.
 4. Use the Python interpreter to inspect or import modules:
    ```bash
-   python -c "from src.domain.task import Task; print(Task(id='1', title='Example'))"
-   ```
+python -c "from src.domain.task import Task; print(Task(id=1, title='Example', description='', status='pending', priority='medium', start_date=None, end_date=None))"   ```
 
 > Note: The current version is a skeleton project with placeholder layers. A runnable API server will be added in a future iteration.
 
