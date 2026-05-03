@@ -2,6 +2,7 @@ import uuid
 from typing import List, Optional
 
 from src.domain.task import Task
+from src.domain.task_status import TaskStatus
 from src.repositories.task_repository import TaskRepository
 
 
@@ -35,7 +36,7 @@ class TaskService:
         task_id = task.id if task.id else str(uuid.uuid4())
         
         # Set status to "pending" if not set
-        status = task.status if task.status else "pending"
+        status = task.status if task.status else TaskStatus.PENDING
         
         # Create processed task with validated/default values
         processed_task = Task(
@@ -56,10 +57,37 @@ class TaskService:
         return self._repository.get_all()
 
     def get_by_id(self, task_id: str) -> Optional[Task]:
-        pass
+        """Retrieve a task by its ID from the repository."""
+        return self._repository.get_by_id(task_id)
 
     def update(self, task: Task) -> Optional[Task]:
-        pass
+        """Update an existing task with provided values."""
+        if not task.id or not task.id.strip():
+            raise TaskValidationError("Task id is required")
+
+        existing_task = self._repository.get_by_id(task.id)
+        if existing_task is None:
+            return None
+
+        updated_task = Task(
+            id=existing_task.id,
+            title=task.title if task.title is not None else existing_task.title,
+            description=task.description if task.description is not None else existing_task.description,
+            status=task.status if task.status is not None else existing_task.status,
+            priority=task.priority if task.priority is not None else existing_task.priority,
+            start_date=task.start_date if task.start_date is not None else existing_task.start_date,
+            end_date=task.end_date if task.end_date is not None else existing_task.end_date,
+        )
+
+        return self._repository.update(updated_task)
 
     def delete(self, task_id: str) -> bool:
-        pass
+        if not task_id or not task_id.strip():
+            raise TaskValidationError("Task id is required")
+
+        existing_task = self._repository.get_by_id(task_id)
+        if existing_task is None:
+            return False
+
+        self._repository.delete(task_id)
+        return True
