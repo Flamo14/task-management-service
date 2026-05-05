@@ -31,6 +31,10 @@ class TaskService:
         # Validate title is not empty
         if not task.title or not task.title.strip():
             raise TaskValidationError("Task title cannot be empty")
+
+        # Validate user ownership
+        if not task.user_id or not task.user_id.strip():
+            raise TaskValidationError("Task user_id cannot be empty")
         
         # Assign unique id if not provided
         task_id = task.id if task.id else str(uuid.uuid4())
@@ -42,6 +46,7 @@ class TaskService:
         processed_task = Task(
             id=task_id,
             title=task.title.strip(),
+            user_id=task.user_id,
             description=task.description,
             status=status,
             priority=task.priority,
@@ -52,13 +57,16 @@ class TaskService:
         # Persist and return
         return self._repository.create(processed_task)
 
-    def get_all(self) -> List[Task]:
-        """Retrieve all tasks from the repository."""
-        return self._repository.get_all()
+    def get_all(self, user_id: str) -> List[Task]:
+        """Retrieve all tasks for a specific user from the repository."""
+        return self._repository.get_by_user_id(user_id)
 
-    def get_by_id(self, task_id: str) -> Optional[Task]:
-        """Retrieve a task by its ID from the repository."""
-        return self._repository.get_by_id(task_id)
+    def get_by_id(self, task_id: str, user_id: str) -> Optional[Task]:
+        """Retrieve a task by its ID only if it belongs to the specified user."""
+        task = self._repository.get_by_id(task_id)
+        if task is None or task.user_id != user_id:
+            return None
+        return task
 
     def update(self, task: Task) -> Optional[Task]:
         """Update an existing task with provided values."""
