@@ -1,4 +1,4 @@
-### Mermaid
+```mermaid
 flowchart TD
     A[Start] --> B{Is title valid?}
     B -- No --> C[Return validation error]
