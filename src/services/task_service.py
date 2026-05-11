@@ -1,8 +1,10 @@
+from datetime import date
 from typing import List, Optional
 
 from src.domain.task import Task
 from src.domain.task_status import TaskStatus
 from src.repositories.task_repository import TaskRepository
+from src.services.create_task.task_factory import TaskFactory
 
 
 class TaskValidationError(Exception):
@@ -10,38 +12,36 @@ class TaskValidationError(Exception):
     pass
 
 
-# Pure Function: Deterministic, no side effects, no UUID generation
-def build_created_task(
+def create_task(
     title: str,
     user_id: str,
-    task_id: str,
     description: Optional[str] = None,
     priority: str = "normal",
-    start_date: Optional[object] = None,
-    end_date: Optional[object] = None,
-    status: Optional[TaskStatus] = None,
-) -> Optional[Task]:
+    start_date: Optional[date] = None,
+    end_date: Optional[date] = None,
+) -> Task:
     """
-    Pure function to build a validated task with defaults applied.
+    Pure function to create a validated task.
     
-    Deterministic:
-    - No UUID generation (task_id must be provided)
-    - No datetime/random values
-    - Always produces the same output for the same input
-    - No external service calls or side effects
+    Characteristics:
+    - No side effects (doesn't modify external state or perform I/O)
+    - Deterministic: same input always produces same output
+    - No external dependencies on state
+    
+    Responsibilities:
+    - Validate business rules (title and user_id must not be empty)
+    - Delegate object creation to TaskFactory
     
     Args:
         title: Task title (must not be empty/whitespace)
         user_id: User ID (must not be empty/whitespace)
-        task_id: Task ID (must not be empty/whitespace, or returns None)
         description: Optional task description
         priority: Task priority (default: "normal")
         start_date: Optional start date
         end_date: Optional end date
-        status: Optional task status (default: TaskStatus.PENDING)
     
     Returns:
-        Task: A validated Task object with defaults applied, or None if task_id is missing
+        Task: A validated Task instance with generated ID and defaults
     
     Raises:
         TaskValidationError: If title or user_id is empty/invalid
@@ -54,20 +54,11 @@ def build_created_task(
     if not user_id or not user_id.strip():
         raise TaskValidationError("Task user_id cannot be empty")
     
-    # Return None if task_id is missing (do NOT generate it)
-    if not task_id or not task_id.strip():
-        return None
-    
-    # Set default status if not provided
-    final_status = status if status else TaskStatus.PENDING
-    
-    # Create and return task with normalized values
-    return Task(
-        id=task_id,
+    # Delegate to factory for object creation
+    return TaskFactory.create(
         title=title.strip(),
-        user_id=user_id,
+        user_id=user_id.strip(),
         description=description,
-        status=final_status,
         priority=priority,
         start_date=start_date,
         end_date=end_date,
@@ -78,40 +69,47 @@ class TaskService:
     def __init__(self, repository: TaskRepository) -> None:
         self._repository = repository
 
-    def create(self, task: Task) -> Task:
+    def create(
+        self,
+        title: str,
+        user_id: str,
+        description: Optional[str] = None,
+        priority: str = "normal",
+        start_date: Optional[date] = None,
+        end_date: Optional[date] = None,
+    ) -> Task:
         """
-        Create a new task with validation and defaults.
+        Create a new task with validation and persistence.
         
-        Uses the pure function build_created_task for business logic,
-        then persists the result.
+        Uses the pure create_task function for business logic,
+        then persists the result to the repository.
         
         Args:
-            task: Task object to create
-            
+            title: Task title (must not be empty/whitespace)
+            user_id: User ID (must not be empty/whitespace)
+            description: Optional task description
+            priority: Task priority (default: "normal")
+            start_date: Optional start date
+            end_date: Optional end date
+        
         Returns:
-            Created task with assigned id and defaults applied
-            
+            Created task persisted to repository
+        
         Raises:
-            TaskValidationError: If task.title, user_id, or id is empty
+            TaskValidationError: If title or user_id is empty
         """
-        # Use pure function for task creation logic
-        created_task = build_created_task(
-            title=task.title,
-            user_id=task.user_id,
-            task_id=task.id,
-            description=task.description,
-            priority=task.priority,
-            start_date=task.start_date,
-            end_date=task.end_date,
-            status=task.status,
+        # Use pure function for business logic
+        task = create_task(
+            title=title,
+            user_id=user_id,
+            description=description,
+            priority=priority,
+            start_date=start_date,
+            end_date=end_date,
         )
         
-        # If pure function returned None (task_id was missing), raise error
-        if created_task is None:
-            raise TaskValidationError("Task id cannot be empty")
-        
         # Persist and return
-        return self._repository.create(created_task)
+        return self._repository.create(task)
 
     def get_all(self, user_id: str) -> List[Task]:
         """Retrieve all tasks for a specific user from the repository."""
