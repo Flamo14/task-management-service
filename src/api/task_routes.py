@@ -113,7 +113,12 @@ def update_task(
 
 
 @router.delete("/{task_id}")
-def delete_task(task_id: str):
+def delete_task(task_id: str, user_id: str = Query(..., description="User ID for task ownership check")):
+    # Ensure the task belongs to the requesting user
+    existing = task_service.get_by_id(task_id, user_id)
+    if existing is None:
+        raise HTTPException(status_code=404, detail="Task not found")
+
     deleted = task_service.delete(task_id)
     if not deleted:
         raise HTTPException(status_code=404, detail="Task not found")
