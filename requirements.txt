@@ -1,1 +1,6 @@
+fastapi
+uvicorn[standard]
+pydantic
 bcrypt
+requests
+streamlit

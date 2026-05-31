@@ -2,8 +2,9 @@ import streamlit as st
 import requests
 import time
 from datetime import date
+import os
 
-API_BASE = "http://localhost:8000"
+API_BASE = st.secrets.get("API_BASE") or os.environ.get("API_BASE") or "http://localhost:8000"
 
 
 def api_register(email: str, password: str):
