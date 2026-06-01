@@ -134,6 +134,7 @@ class TaskService:
         updated_task = Task(
             id=existing_task.id,
             title=task.title if task.title is not None else existing_task.title,
+            user_id=existing_task.user_id,
             description=task.description if task.description is not None else existing_task.description,
             status=task.status if task.status is not None else existing_task.status,
             priority=task.priority if task.priority is not None else existing_task.priority,
