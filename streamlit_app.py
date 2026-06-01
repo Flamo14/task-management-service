@@ -4,6 +4,8 @@ import time
 from datetime import date
 import os
 
+st.set_page_config(layout="wide")
+
 API_BASE = os.environ.get("API_BASE") or st.secrets.get("API_BASE") or "http://localhost:8000"
 
 
@@ -170,8 +172,15 @@ def _inject_css():
         .tm-actions { display:flex; gap:8px; align-items:center; }
         .stButton>button, .stDownloadButton>button {
             white-space: nowrap;
+            min-width: 105px;
         }
         .tm-action-compact { padding:6px 10px; font-size:13px; }
+
+        .tm-page-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 14px;
+        }
 
         /* Create panel */
         .tm-panel { padding:12px; border-radius:8px; background:#fff; border:1px solid rgba(50,50,93,0.06); }
@@ -228,6 +237,7 @@ def auth_screen():
 
 def main_app():
     _inject_css()
+    st.markdown("<div class='tm-page-container'>", unsafe_allow_html=True)
 
     # Header / user info
     header = st.container()
@@ -263,7 +273,7 @@ def main_app():
                 status = task.get("status") or "pending"
 
                 # Row layout: prio bar | card (title + badges) | actions x4
-                row_cols = st.columns([0.25, 6, 1.2, 1.2, 1.2, 1.2])
+                row_cols = st.columns([0.18, 4.8, 1.6, 1.6, 1.6, 1.6])
                 # Priority bar
                 with row_cols[0]:
                     st.markdown(f"<div style='width:6px;height:48px;background:{prio_color};border-radius:4px;margin-top:6px'></div>", unsafe_allow_html=True)
@@ -388,6 +398,7 @@ def main_app():
                     else:
                         st.error("Failed to create task")
         st.markdown("</div>", unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)
 
 
 def main():
