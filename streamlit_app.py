@@ -4,7 +4,7 @@ import time
 from datetime import date
 import os
 
-API_BASE = st.secrets.get("API_BASE") or os.environ.get("API_BASE") or "http://localhost:8000"
+API_BASE = os.environ.get("API_BASE") or st.secrets.get("API_BASE") or "http://localhost:8000"
 
 
 def api_register(email: str, password: str):
@@ -249,6 +249,8 @@ def main_app():
 
 def main():
     ensure_session_state()
+    # Show which backend URL the app is using (helps debug deployment vs local)
+    st.sidebar.markdown(f"**API_BASE:** {API_BASE}")
 
     if not st.session_state.authenticated:
         auth_screen()
